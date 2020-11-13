@@ -28,4 +28,12 @@ class HomeController extends AControllerBase
           'lat' => rand($lat_min*100000,$lat_max *100000) /100000,
         ];
     }
+
+    public function random(){
+        return [
+          'cislo' => rand(1,6)
+
+        ];
+
+    }
 }
