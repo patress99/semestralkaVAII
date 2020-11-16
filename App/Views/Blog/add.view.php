@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col">
 
-            <form method="post">
+            <form method="post" enctype='multipart/form-data'>
                 <div class="form-group">
                     <label>Názov</label>
                     <input name="title" type="text" class="form-control">
@@ -12,20 +12,35 @@
                     <textarea name="text" class="form-control"></textarea>
                 </div>
 
-                <div class="form-group">
-                    <form action="?c=blog&a=upload" method="post" enctype="multipart/form-data">
-                        Select image to upload:
-                        <input type="file" name="fileToUpload" id="fileToUpload"><br>
-                        <button type="submit" class="btn btn-primary" value="Upload Image" name="submit">Potvrdiť</button>
+
+
+                <div id="content">
+
+                    <form method="POST"
+                          action="?c=blog&a=upload"
+                          enctype="multipart/form-data">
+                        <input type="file"
+                               name="uploadfile"
+                               value="" />
+
+                        <div>
+                            <button type="submit"
+                                    name="upload">
+                                UPLOAD
+                            </button>
+                        </div>
                     </form>
                 </div>
 
-
-
-
-
-
             </form>
+
+
+
+
+
+
+
+
 
         </div>
     </div>

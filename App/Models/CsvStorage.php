@@ -16,7 +16,7 @@ class CsvStorage extends AStorage
         $articles = [];
         if (($handle = fopen($this->filePath, "r")) !== FALSE) {
             while (($data = fgetcsv($handle, 1000, ";")) !== FALSE) {
-                $articles[] = new Article($data[0], $data[1]);
+                $articles[] = new Article($data[0], $data[1], $data[2]);
             }
             fclose($handle);
         }
@@ -26,7 +26,7 @@ class CsvStorage extends AStorage
     public function saveArticle(Article $article)
     {
         if (($handle = fopen($this->filePath, "a")) !== FALSE) {
-            fputcsv($handle, [$article->getTitle(), $article->getText()], ";");
+            fputcsv($handle, [$article->getTitle(), $article->getText(), $article->getFilename()], ";");
             fclose($handle);
         }
     }

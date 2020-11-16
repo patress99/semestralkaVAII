@@ -7,15 +7,18 @@ class Article extends Model
     protected int $id;
     protected ?string $title;
     protected ?string $text;
+    protected ?string $filename;
     /**
      * Article constructor.
      * @param string $title
      * @param string $text
+     * @param string $filename
      */
-    public function __construct(?string $title = null, ?string $text = null)
+    public function __construct(?string $title = null, ?string $text = null, ?string $filename = null)
     {
         $this->title = $title;
         $this->text = $text;
+        $this->filename = $filename;
     }
     /**
      * @return int
@@ -55,10 +58,26 @@ class Article extends Model
 
     static public function setDbColumns()
     {
-        return ['id', 'title', 'text'];
+        return ['id', 'title', 'text', 'filename'];
     }
     static public function setTableName()
     {
         return 'articles';
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getFilename(): ?string
+    {
+        return $this->filename;
+    }
+
+    /**
+     * @param string|null $filename
+     */
+    public function setFilename(?string $filename): void
+    {
+        $this->filename = $filename;
     }
 }
