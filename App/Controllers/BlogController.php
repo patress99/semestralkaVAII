@@ -20,7 +20,7 @@ class BlogController extends AControllerBase
     public function add()
     {
 
-        if (isset($_POST['title']) && isset($_POST['upload'])) {
+        if (isset($_POST['title']) && isset($_FILES['uploadfile'])) {
             $target_dir = "uploads/";
             $filename = $_FILES["uploadfile"]["name"];
 
@@ -41,15 +41,13 @@ class BlogController extends AControllerBase
         $id = $_GET['id'];
         $article = new Article();
         $article->getOne($id);
-        $target_dir = "uploads/";
 
-        if (isset($_POST['title']) && isset($_POST['upload']))
+
+        if (isset($_POST['title']))
         {
 
             $article->setText($_POST['text']);
             $article->setTitle($_POST['title']);
-
-
             $article->save();
             header("Location: ?c=blog");
 

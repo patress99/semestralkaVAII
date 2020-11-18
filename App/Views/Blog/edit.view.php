@@ -20,17 +20,11 @@ $article = $data['article'];
 
                 <div id="content">
 
-                    <form method="POST"
-                          enctype="multipart/form-data">
-                        <input type="file"
-                               name="uploadfile"
-                               value=""/>  <?=$article->getFilename()?>
-
+                    <form method="POST" enctype="multipart/form-data">
+                        <input type="file" name="editfile" />
                         <div>
-                            <button type="submit"
-                                    name="upload">
-                                EDIT
-                            </button>
+                            <button type="submit" name="edit"> EDIT  </button>
+
                         </div>
                     </form>
                 </div>

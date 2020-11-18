@@ -16,18 +16,11 @@
 
                 <div id="content">
 
-                    <form method="POST"
-                          action="?c=blog&a=upload"
-                          enctype="multipart/form-data">
-                        <input type="file"
-                               name="uploadfile"
-                               value="" />
-
+                    <form method="POST" enctype="multipart/form-data">
+                        <input type="file" name="uploadfile" />
                         <div>
-                            <button type="submit"
-                                    name="upload">
-                                UPLOAD
-                            </button>
+                            <button type="submit" name="upload"> UPLOAD  </button>
+
                         </div>
                     </form>
                 </div>
