@@ -23,8 +23,10 @@ class BlogController extends AControllerBase
         if (isset($_POST['title']) && isset($_POST['upload'])) {
             $target_dir = "uploads/";
             $filename = $_FILES["uploadfile"]["name"];
+
             $article = new Article($_POST['title'], $_POST['text'], $filename);
             move_uploaded_file($_FILES['uploadfile']['tmp_name'],$target_dir.$filename);
+
             $article->save();
             header("Location: ?c=blog");
 
@@ -39,11 +41,15 @@ class BlogController extends AControllerBase
         $id = $_GET['id'];
         $article = new Article();
         $article->getOne($id);
+        $target_dir = "uploads/";
 
-        if (isset($_POST['title']))
+        if (isset($_POST['title']) && isset($_POST['upload']))
         {
+
             $article->setText($_POST['text']);
             $article->setTitle($_POST['title']);
+
+
             $article->save();
             header("Location: ?c=blog");
 
@@ -71,6 +77,8 @@ class BlogController extends AControllerBase
         exit();
 
     }
+
+
 
 
 }

@@ -16,7 +16,31 @@ $article = $data['article'];
                     <label>Text</label>
                     <textarea name="text" class="form-control"><?=$article->getText()?></textarea>
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+
+
+                <div id="content">
+
+                    <form method="POST"
+                          enctype="multipart/form-data">
+                        <input type="file"
+                               name="uploadfile"
+                               value=""/>  <?=$article->getFilename()?>
+
+                        <div>
+                            <button type="submit"
+                                    name="upload">
+                                EDIT
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+
+
+
+
+
+
             </form>
 
         </div>
