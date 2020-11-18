@@ -10,20 +10,20 @@ class CsvStorage extends AStorage
 
 
     /**
-     * @return Article[]
+     * @return Item[]
      */
     public function getAll() : array{
         $articles = [];
         if (($handle = fopen($this->filePath, "r")) !== FALSE) {
             while (($data = fgetcsv($handle, 1000, ";")) !== FALSE) {
-                $articles[] = new Article($data[0], $data[1], $data[2]);
+                $articles[] = new Item($data[0], $data[1], $data[2]);
             }
             fclose($handle);
         }
         return $articles;
     }
 
-    public function saveArticle(Article $article)
+    public function saveArticle(Item $article)
     {
         if (($handle = fopen($this->filePath, "a")) !== FALSE) {
             fputcsv($handle, [$article->getTitle(), $article->getText(), $article->getFilename()], ";");

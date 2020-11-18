@@ -5,7 +5,7 @@
             <form method="post" enctype='multipart/form-data'>
                 <div class="form-group">
                     <label>Názov</label>
-                    <input name="title" type="text" class="form-control" required>
+                    <input name="title" type="text" class="form-control" required pattern="^[A-Z].*$">
                 </div>
                 <div class="form-group">
                     <label>Text</label>
@@ -17,7 +17,7 @@
                 <div id="content">
 
                     <form method="POST" enctype="multipart/form-data">
-                        <input type="file" name="uploadfile" required />
+                        <input type="file" name="uploadfile" required" />
                         <div>
                             <button type="submit" name="upload"> UPLOAD  </button>
 

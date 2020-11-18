@@ -9,7 +9,7 @@ class Article extends Model
     protected ?string $text;
     protected ?string $filename;
     /**
-     * Article constructor.
+     * Item constructor.
      * @param string $title
      * @param string $text
      * @param string $filename

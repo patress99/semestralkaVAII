@@ -38,7 +38,7 @@
                 <a href="?c=gallery" class="nav-link m-2 menu-item">Gallery</a>
             </li>
             <li class="nav-item">
-                <a href="?c=blog" class="nav-link m-2 menu-item">Cenník</a>
+                <a href="?c=pricelist" class="nav-link m-2 menu-item">Cenník</a>
             </li>
         </ul>
     </div>

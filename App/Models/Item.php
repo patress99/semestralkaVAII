@@ -5,7 +5,7 @@ namespace App\Models;
 
 use App\Core\Model;
 
-class Article extends Model
+class Item extends Model
 {
     protected  $id;
     protected ?string $title;
@@ -13,7 +13,7 @@ class Article extends Model
     protected ?string $filename;
 
     /**
-     * Article constructor.
+     * Item constructor.
      * @param string $title
      * @param string $text
      * @param string $filename
@@ -64,7 +64,7 @@ class Article extends Model
 
     static public function setTableName()
     {
-        return 'articles';
+        return 'items';
     }
 
     public function getId()

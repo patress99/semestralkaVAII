@@ -1,6 +1,6 @@
 <?php /** @var Array $data */
-/** @var \App\Models\Article $article */
-$article = $data['article'];
+/** @var \App\Models\Item $item */
+$item = $data['items'];
 ?>
 
 <div class="container">
@@ -10,11 +10,11 @@ $article = $data['article'];
             <form method="post">
                 <div class="form-group">
                     <label>Titulok</label>
-                    <input name="title" type="text" class="form-control" value="<?=$article->getTitle()?>">
+                    <input name="title" type="text" class="form-control" value="<?=$item->getTitle()?>" pattern="^[A-Z].*$">
                 </div>
                 <div class="form-group">
                     <label>Text</label>
-                    <textarea name="text" class="form-control"><?=$article->getText()?></textarea>
+                    <textarea name="text" class="form-control"><?=$item->getText()?></textarea>
                 </div>
 
 

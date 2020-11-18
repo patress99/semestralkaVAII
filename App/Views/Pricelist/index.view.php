@@ -10,25 +10,25 @@
 
     $target_dir = "uploads/";
     $pocitadlo = 0;
-    foreach ($data['articles'] as $article) {
+    foreach ($data['items'] as $item) {
 
-        $target_file = $target_dir . $article->getFilename();
+        $target_file = $target_dir . $item->getFilename();
             if ($pocitadlo%2 == 0) { ?>
                     <div class="row">
             <?php } ?>
 
             <div class="column">
                 <div class="card" style="width: 30rem; height: 35rem;">
-                    <h5 class="card-title"><?=$article->getTitle()?></h5>
-                    <?php if($article->getFilename() != null)  {  ?>
+                    <h5 class="card-title"><?=$item->getTitle()?></h5>
+                    <?php if($item->getFilename() != null)  {  ?>
                     <div class="pricelist">
                          <img src='<?php echo $target_file; ?>' class="card-img-top" alt="...">
                     </div>
                     <?php } ?>
                     <div class="card-body">
-                        <p class="card-title"><?=$article->getText()?></p>
-                        <a href="?c=blog&a=edit&id=<?=$article->getId()?>" class="btn btn-primary btn-sm" id="right-panel-link">Editovať</a>
-                        <a href="?c=blog&a=delete&id=<?=$article->getId()?>" class="btn btn-danger btn-sm" id="left-panel-link">Zmazať</a>
+                        <p class="card-title"><?=$item->getText()?></p>
+                        <a href="?c=pricelist&a=edit&id=<?=$item->getId()?>" class="btn btn-primary btn-sm" id="right-panel-link">Editovať</a>
+                        <a href="?c=pricelist&a=delete&id=<?=$item->getId()?>" class="btn btn-danger btn-sm" id="left-panel-link">Zmazať</a>
                     </div>
                 </div>
             </div>
@@ -50,7 +50,7 @@
 </div>
 
 <div class="horizontally-center">
-        <a href="?c=blog&a=add"><button>Pridať položku</button></a>
+        <a href="?c=pricelist&a=add"><button>Pridať položku</button></a>
 </div>
 
 

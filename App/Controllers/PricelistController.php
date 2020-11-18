@@ -5,16 +5,16 @@ namespace App\Controllers;
 
 
 use App\Core\AControllerBase;
-use App\Models\Article;
+use App\Models\Item;
 use App\Models\CsvStorage;
-class BlogController extends AControllerBase
+class PricelistController extends AControllerBase
 {
 
     public function index()
     {
         //$storage = new CsvStorage();
         return [
-            'articles' => Article::getAll()
+            'items' => Item::getAll()
         ];
     }
     public function add()
@@ -25,10 +25,10 @@ class BlogController extends AControllerBase
             $target_dir = "uploads/";
             $tempname = $_FILES['uploadfile']['tmp_name'];
             if(@is_array(getimagesize($tempname))){
-                $article = new Article($_POST['title'], $_POST['text'], $filename);
+                $item = new Item($_POST['title'], $_POST['text'], $filename);
                 move_uploaded_file($_FILES['uploadfile']['tmp_name'], $target_dir . $filename);
-                $article->save();
-                header("Location: ?c=blog");
+                $item->save();
+                header("Location: ?c=pricelist");
             } else {
                 ?> <p style="color: red; size: 15px">Nepodporovaný formát obrázku!</p> <?php
             }
@@ -42,24 +42,24 @@ class BlogController extends AControllerBase
     public function edit()
     {
         $id = $_GET['id'];
-        $article = new Article();
-        $article->getOne($id);
+        $item = new Item();
+        $item->getOne($id);
 
 
         if (isset($_POST['title']))
         {
 
-            $article->setText($_POST['text']);
-            $article->setTitle($_POST['title']);
-            $article->save();
-            header("Location: ?c=blog");
+            $item->setText($_POST['text']);
+            $item->setTitle($_POST['title']);
+            $item->save();
+            header("Location: ?c=pricelist");
 
 
         }
 
 
         return [
-          'article' => $article
+          'items' => $item
         ];
 
 
@@ -69,11 +69,11 @@ class BlogController extends AControllerBase
     {
         $target_dir = "uploads/";
         $id = $_GET['id'];
-        $article = new Article();
-        $article->getOne($id);
-        unlink($target_dir.$article->getFilename());
-        $article->delete();
-        header("Location: ?c=blog");
+        $item = new Item();
+        $item->getOne($id);
+        unlink($target_dir.$item->getFilename());
+        $item->delete();
+        header("Location: ?c=pricelist");
 
         exit();
 
