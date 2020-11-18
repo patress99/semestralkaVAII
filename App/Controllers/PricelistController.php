@@ -20,15 +20,18 @@ class BlogController extends AControllerBase
     public function add()
     {
 
-        if (isset($_POST['title']) && isset($_FILES['uploadfile'])) {
-            $target_dir = "uploads/";
+        if (isset($_POST['title'])) {
             $filename = $_FILES["uploadfile"]["name"];
-
-            $article = new Article($_POST['title'], $_POST['text'], $filename);
-            move_uploaded_file($_FILES['uploadfile']['tmp_name'],$target_dir.$filename);
-
-            $article->save();
-            header("Location: ?c=blog");
+            $target_dir = "uploads/";
+            $tempname = $_FILES['uploadfile']['tmp_name'];
+            if(@is_array(getimagesize($tempname))){
+                $article = new Article($_POST['title'], $_POST['text'], $filename);
+                move_uploaded_file($_FILES['uploadfile']['tmp_name'], $target_dir . $filename);
+                $article->save();
+                header("Location: ?c=blog");
+            } else {
+                ?> <p style="color: red; size: 15px">Nepodporovaný formát obrázku!</p> <?php
+            }
 
         }
 

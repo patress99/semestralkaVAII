@@ -43,13 +43,15 @@
     }
     ?>
 
+     <?php if ($pocitadlo%2 == 1) { ?> </div>  <?php } ?>
 
-    <a href="?c=blog&a=add"><button>Pridať položku</button></a>
 
 
 </div>
 
-
+<div class="horizontally-center">
+        <a href="?c=blog&a=add"><button>Pridať položku</button></a>
+</div>
 
 
 

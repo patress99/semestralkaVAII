@@ -5,11 +5,11 @@
             <form method="post" enctype='multipart/form-data'>
                 <div class="form-group">
                     <label>Názov</label>
-                    <input name="title" type="text" class="form-control">
+                    <input name="title" type="text" class="form-control" required>
                 </div>
                 <div class="form-group">
                     <label>Text</label>
-                    <textarea name="text" class="form-control"></textarea>
+                    <textarea name="text" class="form-control" required></textarea>
                 </div>
 
 
@@ -17,7 +17,7 @@
                 <div id="content">
 
                     <form method="POST" enctype="multipart/form-data">
-                        <input type="file" name="uploadfile" />
+                        <input type="file" name="uploadfile" required />
                         <div>
                             <button type="submit" name="upload"> UPLOAD  </button>
 
